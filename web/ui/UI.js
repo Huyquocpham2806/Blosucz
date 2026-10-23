@@ -22,8 +22,12 @@ export class UI {
       if (!game.moves || confirm("Start again at level 1?")) game.load(1);
     };
     document.querySelector("#levels").onclick = () => this.showLevels();
-    document.querySelector("#help").onclick = () =>
+    const openInstructions = () =>
       document.querySelector("#legend-dialog").showModal();
+    const instBtn = document.querySelector("#instructions");
+    if (instBtn) instBtn.onclick = openInstructions;
+    const helpBtn = document.querySelector("#help");
+    if (helpBtn) helpBtn.onclick = openInstructions;
     document
       .querySelectorAll("[data-close]")
       .forEach(

@@ -96,17 +96,19 @@ export class BlockAnimator {
         ),
       );
       mesh.add(edges);
-      const stripe = new THREE.Mesh(
-        this.own(new THREE.BoxGeometry(0.987, 0.025, 0.987)),
-        this.own(
-          new THREE.MeshStandardMaterial({
-            color: 0x44342b,
-            roughness: 0.5,
-            metalness: 0.4,
-          }),
-        ),
-      );
-      mesh.add(stripe);
+      if (!split) {
+        const stripe = new THREE.Mesh(
+          this.own(new THREE.BoxGeometry(0.987, 0.025, 0.987)),
+          this.own(
+            new THREE.MeshStandardMaterial({
+              color: 0x44342b,
+              roughness: 0.5,
+              metalness: 0.4,
+            }),
+          ),
+        );
+        mesh.add(stripe);
+      }
     }
     if (split) {
       this.marker = new THREE.Mesh(

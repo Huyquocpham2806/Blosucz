@@ -24,8 +24,7 @@
       >
       <div class="header-right">
         <span class="live-dot"></span> A STUDY IN MOTION
-        <button id="help" title="Tile legend">?</button
-        ><button id="sound" aria-label="Toggle sound" aria-pressed="false">
+        <button id="sound" aria-label="Toggle sound" aria-pressed="false">
           Sound off
         </button>
       </div>
@@ -45,6 +44,7 @@
         </div>
         <div class="side-actions">
           <button id="new-game">New Game <span>↗</span></button
+          ><button id="instructions">Instructions <span>?</span></button
           ><button id="levels">Level Select <span>▦</span></button>
         </div>
         <div class="eyebrow solver-label">SEARCH LAB</div>
@@ -144,8 +144,18 @@
     </dialog>
     <dialog id="legend-dialog">
       <div class="dialog-header">
-        <h2>Read the board</h2>
+        <h2>Instructions & Legend</h2>
         <button data-close="legend-dialog">✕</button>
+      </div>
+      <div class="instructions-section">
+        <p class="intro-dialog">Roll the block across the platforms to reach and fall vertically into the square <b>Goal</b>.</p>
+        <div class="controls-summary">
+          <div><b>Roll block:</b> <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div>
+          <div><b>Swap cube (when split):</b> <kbd>SPACE</kbd></div>
+          <div><b>Restart / Undo:</b> <kbd>R</kbd> to restart · <kbd>U</kbd> to undo</div>
+          <div><b>Rotate 360°:</b> 2-finger swipe on Touchpad · Right-drag · <kbd>V</kbd></div>
+          <div><b>Zoom & Reset:</b> Pinch / Scroll wheel · <kbd>C</kbd> to reset view</div>
+        </div>
       </div>
       <div class="legend-list">
         <p>
@@ -164,16 +174,16 @@
           <i class="tile-swatch bridge">═</i><b>Bridge</b> Cross only when open.
         </p>
         <p>
-          <i class="tile-swatch soft">○</i><b>Soft switch</b> A landing footprint
+          <i class="tile-swatch soft">○</i><b>Soft switch</b> Any landing footprint
           activates it.
         </p>
         <p>
-          <i class="tile-swatch heavy">×</i><b>Heavy switch</b> Stand upright to
-          activate.
+          <i class="tile-swatch heavy">×</i><b>Heavy switch</b> Must stand upright
+          to activate.
         </p>
         <p>
           <i class="tile-swatch split">( )</i><b>Split switch</b> Stand upright
-          to separate.
+          to separate into two cubes.
         </p>
       </div>
       <p class="muted">

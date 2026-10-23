@@ -6,9 +6,9 @@ export const COLORS = {
   start: 0xa0a3a7,
   fragile: 0xd98236,
   bridge: 0x74716a,
-  soft_switch: 0xa0a3a7,
-  heavy_switch: 0xa0a3a7,
-  split_switch: 0xa0a3a7,
+  soft_switch: 0x93979b,
+  heavy_switch: 0x8a8e94,
+  split_switch: 0x8e989d,
   goal: 0x817c70,
 };
 export function stoneGeometry() {
@@ -100,6 +100,21 @@ function texture(kind, debugLabel = "") {
   t.colorSpace = THREE.SRGBColorSpace;
   return t;
 }
+function auraTexture(color) {
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 128;
+  const ctx = canvas.getContext("2d");
+  const grad = ctx.createRadialGradient(64, 64, 8, 64, 64, 62);
+  grad.addColorStop(0, color);
+  grad.addColorStop(0.5, color.replace("0.5)", "0.2)"));
+  grad.addColorStop(1, "rgba(0,0,0,0)");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 128, 128);
+  const t = new THREE.CanvasTexture(canvas);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
 function stoneTexture() {
   const canvas = document.createElement("canvas");
   canvas.width = canvas.height = 128;
@@ -210,6 +225,82 @@ export class SceneManager {
     this.stoneMap = this.own(stoneTexture());
     const normal = [];
     const geo = this.own(stoneGeometry());
+
+    // Reusable 3D Switch Assets (disposed cleanly via this.own on level clear)
+    const softBezelGeo = this.own(new THREE.CylinderGeometry(0.36, 0.38, 0.05, 24));
+    const softBezelMat = this.own(
+      new THREE.MeshStandardMaterial({
+        color: 0x4a433d,
+        metalness: 0.7,
+        roughness: 0.35,
+      }),
+    );
+    const softBtnGeo = this.own(new THREE.CylinderGeometry(0.28, 0.28, 0.08, 24));
+    const softBtnMat = this.own(
+      new THREE.MeshStandardMaterial({
+        color: 0xe9a643,
+        emissive: 0x5a3410,
+        emissiveIntensity: 0.5,
+        metalness: 0.5,
+        roughness: 0.25,
+      }),
+    );
+    const softDotGeo = this.own(new THREE.CylinderGeometry(0.09, 0.09, 0.10, 16));
+    const softDotMat = this.own(
+      new THREE.MeshStandardMaterial({
+        color: 0xffd277,
+        emissive: 0x664411,
+        emissiveIntensity: 0.3,
+        metalness: 0.8,
+        roughness: 0.2,
+      }),
+    );
+    const softAuraGeo = this.own(new THREE.PlaneGeometry(0.96, 0.96));
+    const softAuraMat = this.own(
+      new THREE.MeshBasicMaterial({
+        map: this.own(auraTexture("rgba(233, 166, 67, 0.5)")),
+        transparent: true,
+        depthWrite: false,
+      }),
+    );
+
+    const heavyBaseGeo = this.own(new THREE.BoxGeometry(0.70, 0.03, 0.70));
+    const heavyBaseMat = this.own(
+      new THREE.MeshStandardMaterial({
+        color: 0x3a3f45,
+        metalness: 0.6,
+        roughness: 0.4,
+      }),
+    );
+    const heavyBarGeo = this.own(new THREE.BoxGeometry(0.58, 0.08, 0.15));
+    const heavyBarMat = this.own(
+      new THREE.MeshStandardMaterial({
+        color: 0xcfd4da,
+        metalness: 0.85,
+        roughness: 0.25,
+        emissive: 0x181c20,
+      }),
+    );
+
+    const splitBaseGeo = this.own(new THREE.CylinderGeometry(0.38, 0.40, 0.03, 24));
+    const splitBaseMat = this.own(
+      new THREE.MeshStandardMaterial({
+        color: 0x363d44,
+        metalness: 0.6,
+        roughness: 0.4,
+      }),
+    );
+    const splitArcGeo = this.own(new THREE.TorusGeometry(0.22, 0.04, 12, 24, Math.PI * 0.7));
+    const splitArcMat = this.own(
+      new THREE.MeshStandardMaterial({
+        color: 0x65dcd0,
+        emissive: 0x1b5550,
+        emissiveIntensity: 0.5,
+        metalness: 0.6,
+        roughness: 0.2,
+      }),
+    );
+
     for (let r = 0; r < level.grid.length; r++)
       for (let c = 0; c < level.grid[r].length; c++) {
         const kind = level.legend[level.grid[r][c]];
@@ -263,6 +354,74 @@ export class SceneManager {
           );
           walls.position.y = -0.15;
           group.add(walls);
+        } else if (kind === "soft_switch") {
+          const mesh = new THREE.Mesh(geo, this.material(kind));
+          mesh.castShadow = mesh.receiveShadow = true;
+          group.add(mesh);
+
+          const aura = new THREE.Mesh(softAuraGeo, softAuraMat);
+          aura.rotation.x = -Math.PI / 2;
+          aura.position.y = 0.005;
+          group.add(aura);
+
+          const bezel = new THREE.Mesh(softBezelGeo, softBezelMat);
+          bezel.position.y = 0.025;
+          bezel.castShadow = bezel.receiveShadow = true;
+          group.add(bezel);
+
+          const btn = new THREE.Mesh(softBtnGeo, softBtnMat);
+          btn.position.y = 0.05;
+          btn.castShadow = btn.receiveShadow = true;
+          group.add(btn);
+
+          const dot = new THREE.Mesh(softDotGeo, softDotMat);
+          dot.position.y = 0.06;
+          dot.castShadow = true;
+          group.add(dot);
+        } else if (kind === "heavy_switch") {
+          const mesh = new THREE.Mesh(geo, this.material(kind));
+          mesh.castShadow = mesh.receiveShadow = true;
+          group.add(mesh);
+
+          const base = new THREE.Mesh(heavyBaseGeo, heavyBaseMat);
+          base.position.y = 0.015;
+          base.castShadow = base.receiveShadow = true;
+          group.add(base);
+
+          const bar1 = new THREE.Mesh(heavyBarGeo, heavyBarMat);
+          bar1.position.y = 0.045;
+          bar1.rotation.y = Math.PI / 4;
+          bar1.castShadow = bar1.receiveShadow = true;
+          group.add(bar1);
+
+          const bar2 = new THREE.Mesh(heavyBarGeo, heavyBarMat);
+          bar2.position.y = 0.045;
+          bar2.rotation.y = -Math.PI / 4;
+          bar2.castShadow = bar2.receiveShadow = true;
+          group.add(bar2);
+        } else if (kind === "split_switch") {
+          const mesh = new THREE.Mesh(geo, this.material(kind));
+          mesh.castShadow = mesh.receiveShadow = true;
+          group.add(mesh);
+
+          const base = new THREE.Mesh(splitBaseGeo, splitBaseMat);
+          base.position.y = 0.015;
+          base.castShadow = base.receiveShadow = true;
+          group.add(base);
+
+          const leftArc = new THREE.Mesh(splitArcGeo, splitArcMat);
+          leftArc.rotation.x = -Math.PI / 2;
+          leftArc.rotation.z = Math.PI * 0.65;
+          leftArc.position.set(-0.06, 0.045, 0);
+          leftArc.castShadow = leftArc.receiveShadow = true;
+          group.add(leftArc);
+
+          const rightArc = new THREE.Mesh(splitArcGeo, splitArcMat);
+          rightArc.rotation.x = -Math.PI / 2;
+          rightArc.rotation.z = -Math.PI * 0.35;
+          rightArc.position.set(0.06, 0.045, 0);
+          rightArc.castShadow = rightArc.receiveShadow = true;
+          group.add(rightArc);
         } else {
           const mesh = new THREE.Mesh(geo, this.material(kind));
           mesh.castShadow = mesh.receiveShadow = true;

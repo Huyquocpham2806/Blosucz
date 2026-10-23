@@ -571,6 +571,34 @@ dialog h2 {
   margin-top: 22px;
 }
 
+.instructions-section {
+  margin-bottom: 20px;
+}
+
+.intro-dialog {
+  font-size: 13px;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+.controls-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #ffffff07;
+  border: 1px solid var(--line);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.controls-summary b {
+  color: var(--text);
+  min-width: 140px;
+  display: inline-block;
+}
+
 .legend-list p {
   display: flex;
   align-items: center;
@@ -845,7 +873,7 @@ progress {
   }
 
   .side-actions {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     margin: 12px 0;
   }
 
