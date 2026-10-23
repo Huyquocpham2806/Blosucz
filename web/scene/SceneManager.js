@@ -131,6 +131,7 @@ export class SceneManager {
     container.prepend(this.renderer.domElement);
     this.camera = new THREE.OrthographicCamera(-10, 10, 8, -8, 0.1, 200);
     this.rig = new CameraRig(this.camera);
+    this.rig.attach(this.renderer.domElement);
     this.scene.add(new THREE.HemisphereLight(0xffffff, 0x302d2a, 2.0));
     const light = new THREE.DirectionalLight(0xffffff, 3.2);
     light.position.set(-5, 16, 8);

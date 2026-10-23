@@ -102,6 +102,13 @@ export class UI {
     let touch = null;
     const canvas = game.scene.renderer.domElement;
     canvas.addEventListener("pointerdown", (e) => {
+      if (
+        game.scene.rig?.orbitMode ||
+        e.button !== 0 ||
+        e.shiftKey ||
+        e.altKey
+      )
+        return;
       touch = [e.clientX, e.clientY];
     });
     canvas.addEventListener("pointerup", (e) => {
