@@ -1,0 +1,597 @@
+[
+  {
+    "case": "stationary_leave_reenter_swap",
+    "level": {
+      "id": 1,
+      "name": "Test",
+      "grid": [
+        "S#######G",
+        "##o######",
+        "########B",
+        "#########"
+      ],
+      "legend": {
+        "#": "floor",
+        ".": "void",
+        "S": "start",
+        "G": "goal",
+        "F": "fragile",
+        "B": "bridge",
+        "o": "soft_switch",
+        "x": "heavy_switch",
+        "Y": "split_switch"
+      },
+      "bridges": [
+        {
+          "id": 0,
+          "cells": [
+            [
+              2,
+              8
+            ]
+          ]
+        }
+      ],
+      "switches": [
+        {
+          "cell": [
+            1,
+            2
+          ],
+          "type": "soft",
+          "mode": "toggle",
+          "targets": [
+            0
+          ]
+        }
+      ]
+    },
+    "trace": [
+      {
+        "before": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "split": true,
+          "active": 1,
+          "bridges": 1
+        },
+        "action": "LEFT",
+        "after": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "split": true,
+          "active": 1,
+          "bridges": 1
+        },
+        "status": "PLAYING",
+        "events": [
+          {
+            "type": "roll",
+            "from_cells": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "to_cells": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "direction": "LEFT",
+            "from_orientation": "split",
+            "to_orientation": "split",
+            "cube_index": 1
+          }
+        ]
+      },
+      {
+        "before": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "split": true,
+          "active": 1,
+          "bridges": 1
+        },
+        "action": "SWAP",
+        "after": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "split": true,
+          "active": 0,
+          "bridges": 1
+        },
+        "status": "PLAYING",
+        "events": [
+          {
+            "type": "swap",
+            "active": 0,
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                5
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "before": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "split": true,
+          "active": 0,
+          "bridges": 1
+        },
+        "action": "LEFT",
+        "after": {
+          "cubes": [
+            [
+              1,
+              1
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "split": true,
+          "active": 0,
+          "bridges": 1
+        },
+        "status": "PLAYING",
+        "events": [
+          {
+            "type": "roll",
+            "from_cells": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "to_cells": [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "direction": "LEFT",
+            "from_orientation": "split",
+            "to_orientation": "split",
+            "cube_index": 0
+          }
+        ]
+      },
+      {
+        "before": {
+          "cubes": [
+            [
+              1,
+              1
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "split": true,
+          "active": 0,
+          "bridges": 1
+        },
+        "action": "RIGHT",
+        "after": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "split": true,
+          "active": 0,
+          "bridges": 0
+        },
+        "status": "PLAYING",
+        "events": [
+          {
+            "type": "roll",
+            "from_cells": [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "to_cells": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "direction": "RIGHT",
+            "from_orientation": "split",
+            "to_orientation": "split",
+            "cube_index": 0
+          },
+          {
+            "type": "switch_pressed",
+            "cell": [
+              1,
+              2
+            ],
+            "switch_type": "soft"
+          },
+          {
+            "type": "bridge_changed",
+            "bridge_id": 0,
+            "open": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "moving_cube_then_merge",
+    "level": {
+      "id": 1,
+      "name": "Test",
+      "grid": [
+        "S#######G",
+        "##o######",
+        "########B",
+        "#########"
+      ],
+      "legend": {
+        "#": "floor",
+        ".": "void",
+        "S": "start",
+        "G": "goal",
+        "F": "fragile",
+        "B": "bridge",
+        "o": "soft_switch",
+        "x": "heavy_switch",
+        "Y": "split_switch"
+      },
+      "bridges": [
+        {
+          "id": 0,
+          "cells": [
+            [
+              2,
+              8
+            ]
+          ]
+        }
+      ],
+      "switches": [
+        {
+          "cell": [
+            1,
+            2
+          ],
+          "type": "soft",
+          "mode": "toggle",
+          "targets": [
+            0
+          ]
+        }
+      ]
+    },
+    "trace": [
+      {
+        "before": {
+          "cubes": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "split": true,
+          "active": 0,
+          "bridges": 0
+        },
+        "action": "DOWN",
+        "after": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "split": false,
+          "active": 0,
+          "bridges": 0
+        },
+        "status": "PLAYING",
+        "events": [
+          {
+            "type": "roll",
+            "from_cells": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "to_cells": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "direction": "DOWN",
+            "from_orientation": "split",
+            "to_orientation": "split",
+            "cube_index": 0
+          },
+          {
+            "type": "switch_pressed",
+            "cell": [
+              1,
+              2
+            ],
+            "switch_type": "soft"
+          },
+          {
+            "type": "bridge_changed",
+            "bridge_id": 0,
+            "open": true
+          },
+          {
+            "type": "merge",
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "orientation": "lying_h"
+          },
+          {
+            "type": "switch_pressed",
+            "cell": [
+              1,
+              2
+            ],
+            "switch_type": "soft"
+          },
+          {
+            "type": "bridge_changed",
+            "bridge_id": 0,
+            "open": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "stationary_cube_then_merge",
+    "level": {
+      "id": 1,
+      "name": "Test",
+      "grid": [
+        "S#######G",
+        "##o######",
+        "########B",
+        "#########"
+      ],
+      "legend": {
+        "#": "floor",
+        ".": "void",
+        "S": "start",
+        "G": "goal",
+        "F": "fragile",
+        "B": "bridge",
+        "o": "soft_switch",
+        "x": "heavy_switch",
+        "Y": "split_switch"
+      },
+      "bridges": [
+        {
+          "id": 0,
+          "cells": [
+            [
+              2,
+              8
+            ]
+          ]
+        }
+      ],
+      "switches": [
+        {
+          "cell": [
+            1,
+            2
+          ],
+          "type": "soft",
+          "mode": "toggle",
+          "targets": [
+            0
+          ]
+        }
+      ]
+    },
+    "trace": [
+      {
+        "before": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "split": true,
+          "active": 1,
+          "bridges": 0
+        },
+        "action": "LEFT",
+        "after": {
+          "cubes": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "split": false,
+          "active": 0,
+          "bridges": 1
+        },
+        "status": "PLAYING",
+        "events": [
+          {
+            "type": "roll",
+            "from_cells": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "to_cells": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "direction": "LEFT",
+            "from_orientation": "split",
+            "to_orientation": "split",
+            "cube_index": 1
+          },
+          {
+            "type": "merge",
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "orientation": "lying_h"
+          },
+          {
+            "type": "switch_pressed",
+            "cell": [
+              1,
+              2
+            ],
+            "switch_type": "soft"
+          },
+          {
+            "type": "bridge_changed",
+            "bridge_id": 0,
+            "open": true
+          }
+        ]
+      }
+    ]
+  }
+]

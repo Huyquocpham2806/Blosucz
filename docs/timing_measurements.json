@@ -1,0 +1,68 @@
+[
+  {
+    "outcome": "fall",
+    "trial": 0,
+    "network": 0.007700000000069849,
+    "roll": 0.5888000000000466,
+    "locked": true,
+    "fall": 0.6442999999999302,
+    "terminal_to_idle": 1.9745,
+    "mode": "IDLE",
+    "pending": 0
+  },
+  {
+    "outcome": "fall",
+    "trial": 1,
+    "network": 0.026999999999883582,
+    "roll": 0.41620000000006985,
+    "locked": true,
+    "fall": 0.6567999999999301,
+    "terminal_to_idle": 2.12279999999993,
+    "mode": "IDLE",
+    "pending": 0
+  },
+  {
+    "outcome": "fall",
+    "trial": 2,
+    "network": 0.008699999999953434,
+    "roll": 0.2848999999999069,
+    "locked": true,
+    "fall": 0.6097000000000699,
+    "terminal_to_idle": 1.9289000000000234,
+    "mode": "IDLE",
+    "pending": 0
+  },
+  {
+    "outcome": "win",
+    "trial": 0,
+    "network": 0.014499999999999999,
+    "roll": 0.5585999999999767,
+    "locked": true,
+    "win": 0.24030000000004656,
+    "terminal_to_idle": 2.2428000000000465,
+    "mode": "IDLE",
+    "pending": 0
+  },
+  {
+    "outcome": "win",
+    "trial": 1,
+    "network": 0.015600000000093131,
+    "roll": 0.5665,
+    "locked": true,
+    "win": 0.2394000000000233,
+    "terminal_to_idle": 2.1776999999999536,
+    "mode": "IDLE",
+    "pending": 0
+  },
+  {
+    "outcome": "win",
+    "trial": 2,
+    "network": 0.011799999999930151,
+    "roll": 0.48219999999995344,
+    "locked": true,
+    "win": 0.22690000000002328,
+    "terminal_to_idle": 2.21270000000007,
+    "mode": "IDLE",
+    "pending": 0
+  }
+]

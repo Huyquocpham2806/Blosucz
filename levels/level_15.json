@@ -1,0 +1,213 @@
+{
+  "id": 15,
+  "name": "Stage 15",
+  "grid": [
+    ".......###..###",
+    "....#BB###BBx##",
+    "##BB#..###..###",
+    "#####...o......",
+    "##.............",
+    ".#.....Y.......",
+    ".#.....#.......",
+    "###...###..o##.",
+    "#S#######BB#G#.",
+    "###...###..o##."
+  ],
+  "legend": {
+    "#": "floor",
+    ".": "void",
+    "S": "start",
+    "G": "goal",
+    "F": "fragile",
+    "o": "soft_switch",
+    "x": "heavy_switch",
+    "Y": "split_switch",
+    "B": "bridge"
+  },
+  "bridges": [
+    {
+      "id": 0,
+      "cells": [
+        [
+          1,
+          5
+        ]
+      ],
+      "open": true
+    },
+    {
+      "id": 1,
+      "cells": [
+        [
+          1,
+          6
+        ]
+      ],
+      "open": true
+    },
+    {
+      "id": 2,
+      "cells": [
+        [
+          1,
+          10
+        ]
+      ],
+      "open": false
+    },
+    {
+      "id": 3,
+      "cells": [
+        [
+          1,
+          11
+        ]
+      ],
+      "open": false
+    },
+    {
+      "id": 4,
+      "cells": [
+        [
+          2,
+          2
+        ]
+      ],
+      "open": false
+    },
+    {
+      "id": 5,
+      "cells": [
+        [
+          2,
+          3
+        ]
+      ],
+      "open": false
+    },
+    {
+      "id": 6,
+      "cells": [
+        [
+          8,
+          9
+        ]
+      ],
+      "open": true
+    },
+    {
+      "id": 7,
+      "cells": [
+        [
+          8,
+          10
+        ]
+      ],
+      "open": true
+    }
+  ],
+  "switches": [
+    {
+      "cell": [
+        1,
+        12
+      ],
+      "type": "heavy",
+      "mode": "toggle",
+      "targets": [
+        4,
+        5,
+        0,
+        1
+      ]
+    },
+    {
+      "cell": [
+        3,
+        8
+      ],
+      "type": "soft",
+      "mode": "toggle",
+      "targets": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "cell": [
+        5,
+        7
+      ],
+      "type": "split",
+      "mode": "toggle",
+      "targets": [],
+      "cubes": [
+        [
+          1,
+          13
+        ],
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "cell": [
+        7,
+        11
+      ],
+      "type": "soft",
+      "mode": "permanent",
+      "targets": [
+        6,
+        7
+      ],
+      "set": "closed"
+    },
+    {
+      "cell": [
+        9,
+        11
+      ],
+      "type": "soft",
+      "mode": "permanent",
+      "targets": [
+        6,
+        7
+      ],
+      "set": "closed"
+    }
+  ],
+  "meta": {
+    "difficulty": 5,
+    "group": 4,
+    "hint": "Original stage layout. Study the block orientation and switches.",
+    "profile": "reference15",
+    "reference_stage": 15,
+    "reference_code": "098598",
+    "reference_sha256": "b9f58fee0c22f4cb7bf6b6d78c9042902204c41820748a4e3861a3c60281148c",
+    "solution": "RRRRUULWUUUUURRRUURRRDRDUWLLLWDULULLLDWLLLLLDLLDDDLDRURRRRRRR",
+    "optimal_moves": 61,
+    "verification": {
+      "optimality_verified": true,
+      "objective": "unit actions including SWAP",
+      "expanded_unique_states": 4535,
+      "discovered_states": 4792,
+      "total_reachable_states": null,
+      "elapsed_s": 0.1309,
+      "level_data_sha256": "cf130ea1aaec8be0e39761b7d5f941f95ec538665c8d4dfffd9fcc00427e67ff",
+      "core_sha256": {
+        "__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "constants.py": "02c7b1952426f3afe84ff5bf55ef7fe083d14b83238be6d1edd7b349b18ee4fa",
+        "costs.py": "b8d95f8c31c2c1240c769101942e424d64d48dda1b5de2d59cd7c442627cfd81",
+        "level.py": "0109cac7c725f61a105e93f34a03ac56bd1ae13c5206f4372c36e4070aa1d625",
+        "rules.py": "4b43031a009a4f9edf1bb1966533568a3be94341bbd4c3d879beff19252117c7",
+        "state.py": "acfe144bd69899ae2d76f1638b553de3d4867d4c8c31fe376d2c02f810be0c17",
+        "tiles.py": "b789ef72389c7fd491803ba336c097cc249a505a4dd17b54bede59c56ca01b35"
+      }
+    }
+  }
+}

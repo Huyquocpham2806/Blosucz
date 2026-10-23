@@ -1,0 +1,614 @@
+[
+  {
+    "stage": 1,
+    "symbol": "levelez",
+    "grid": [
+      "               ",
+      "               ",
+      "  bbb          ",
+      "  bbbbbb       ",
+      "  bbbbbbbbb    ",
+      "   bbbbbbbbb   ",
+      "       bbebb   ",
+      "        bbb    ",
+      "               ",
+      "               "
+    ],
+    "start_xy": [
+      3,
+      3
+    ],
+    "switches": {},
+    "teleports": {},
+    "passcode": "780464"
+  },
+  {
+    "stage": 2,
+    "symbol": "levelpq",
+    "grid": [
+      "               ",
+      "      bbbb  bbb",
+      "bbbb  bbhb  beb",
+      "bbsb  bbbb  bbb",
+      "bbbb  bbbb  bbb",
+      "bbbblrbbbblrbbb",
+      "bbbb  bbbb     ",
+      "               ",
+      "               ",
+      "               "
+    ],
+    "start_xy": [
+      1,
+      5
+    ],
+    "switches": {
+      "swatch23": [
+        [
+          4,
+          5,
+          "onoff"
+        ],
+        [
+          5,
+          5,
+          "onoff"
+        ]
+      ],
+      "swatch82": [
+        [
+          10,
+          5,
+          "onoff"
+        ],
+        [
+          11,
+          5,
+          "onoff"
+        ]
+      ]
+    },
+    "teleports": {},
+    "passcode": "290299"
+  },
+  {
+    "stage": 3,
+    "symbol": "levelji",
+    "grid": [
+      "               ",
+      "               ",
+      "      bbbbbbb  ",
+      "bbbb  bbb  bb  ",
+      "bbbbbbbbb  bbbb",
+      "bbbb       bbeb",
+      "bbbb        bbb",
+      "               ",
+      "               ",
+      "               "
+    ],
+    "start_xy": [
+      1,
+      5
+    ],
+    "switches": {},
+    "teleports": {},
+    "passcode": "918660"
+  },
+  {
+    "stage": 4,
+    "symbol": "levelwe",
+    "grid": [
+      "               ",
+      "   fffffff     ",
+      "   fffffff     ",
+      "bbbb     bbb   ",
+      "bbb       bb   ",
+      "bbb       bb   ",
+      "bbb  bbbbfffff ",
+      "bbb  bbbbfffff ",
+      "     beb  ffbf ",
+      "     bbb  ffff "
+    ],
+    "start_xy": [
+      1,
+      6
+    ],
+    "switches": {},
+    "teleports": {},
+    "passcode": "520967"
+  },
+  {
+    "stage": 5,
+    "symbol": "levelxx",
+    "grid": [
+      "           bbbb",
+      " bbbbkqbsbbbbbb",
+      " bbbb       bbb",
+      " bbsb          ",
+      " bbbb          ",
+      "   bbbsbkqbbb  ",
+      "          bbbbs",
+      "bbb       bbbbb",
+      "bebbbkqbbbbbb  ",
+      "bbbb           "
+    ],
+    "start_xy": [
+      13,
+      1
+    ],
+    "switches": {
+      "swatch81": [
+        [
+          6,
+          1,
+          "onoff"
+        ],
+        [
+          5,
+          1,
+          "onoff"
+        ]
+      ],
+      "swatch65": [
+        [
+          5,
+          8,
+          "off"
+        ],
+        [
+          6,
+          8,
+          "off"
+        ]
+      ],
+      "swatch33": [
+        [
+          5,
+          8,
+          "on"
+        ],
+        [
+          6,
+          8,
+          "on"
+        ]
+      ],
+      "swatch146": [
+        [
+          5,
+          8,
+          "onoff"
+        ],
+        [
+          6,
+          8,
+          "onoff"
+        ]
+      ]
+    },
+    "teleports": {},
+    "passcode": "028431"
+  },
+  {
+    "stage": 6,
+    "symbol": "levelgg",
+    "grid": [
+      "     bbbbbb    ",
+      "     b  bbb    ",
+      "     b  bbbbb  ",
+      "bbbbbb     bbbb",
+      "    bbb    bbeb",
+      "    bbb     bbb",
+      "      b  bb    ",
+      "      bbbbb    ",
+      "      bbbbb    ",
+      "       bbb     "
+    ],
+    "start_xy": [
+      0,
+      3
+    ],
+    "switches": {},
+    "teleports": {},
+    "passcode": "524383"
+  },
+  {
+    "stage": 7,
+    "symbol": "levelfr",
+    "grid": [
+      "               ",
+      "        bbbb   ",
+      "        bbbb   ",
+      "bbb     b  bbbb",
+      "bbbbbbbbb   beb",
+      "bbb    bbh  bbb",
+      "bbb    bbb  bbb",
+      " bbl   b       ",
+      "  bbbbbb       ",
+      "               "
+    ],
+    "start_xy": [
+      1,
+      4
+    ],
+    "switches": {
+      "swatch95": [
+        [
+          3,
+          7,
+          "onoff"
+        ]
+      ]
+    },
+    "teleports": {},
+    "passcode": "189493"
+  },
+  {
+    "stage": 8,
+    "symbol": "levelss",
+    "grid": [
+      "         bbb   ",
+      "         bbb   ",
+      "         bbb   ",
+      "bbbbbb   bbbbbb",
+      "bbbbvb   bbbbeb",
+      "bbbbbb   bbbbbb",
+      "         bbb   ",
+      "         bbb   ",
+      "         bbb   ",
+      "               "
+    ],
+    "start_xy": [
+      1,
+      4
+    ],
+    "switches": {},
+    "teleports": {
+      "swatch44": [
+        10,
+        1,
+        10,
+        7
+      ]
+    },
+    "passcode": "499707"
+  },
+  {
+    "stage": 9,
+    "symbol": "levelre",
+    "grid": [
+      "               ",
+      "               ",
+      "               ",
+      "bbbb   b   bbbb",
+      "bbbb   b   bbvb",
+      "bbbbbbbbbbbbbbb",
+      "      beb      ",
+      "      bbb      ",
+      "               ",
+      "               "
+    ],
+    "start_xy": [
+      1,
+      4
+    ],
+    "switches": {},
+    "teleports": {
+      "swatch134": [
+        12,
+        4,
+        2,
+        4
+      ]
+    },
+    "passcode": "074355"
+  },
+  {
+    "stage": 10,
+    "symbol": "levelpp",
+    "grid": [
+      " bbb     bbbbbb",
+      " beblrblrbbbbvb",
+      " bbb     bbbbl ",
+      "          bbbl ",
+      "            bb ",
+      "             b ",
+      "             b ",
+      "            bb ",
+      "     bbbbb  bb ",
+      "     bs  bbbhb "
+    ],
+    "start_xy": [
+      10,
+      1
+    ],
+    "switches": {
+      "swatch129": [
+        [
+          7,
+          1,
+          "onoff"
+        ],
+        [
+          8,
+          1,
+          "onoff"
+        ],
+        [
+          13,
+          2,
+          "onoff"
+        ],
+        [
+          13,
+          3,
+          "onoff"
+        ]
+      ],
+      "swatch69": [
+        [
+          4,
+          1,
+          "onoff"
+        ],
+        [
+          5,
+          1,
+          "onoff"
+        ]
+      ]
+    },
+    "teleports": {
+      "swatch131": [
+        13,
+        1,
+        10,
+        1
+      ]
+    },
+    "passcode": "300590"
+  },
+  {
+    "stage": 11,
+    "symbol": "leveldw",
+    "grid": [
+      "   bbbk        ",
+      "   bebk        ",
+      "   bbb         ",
+      "   b   bbbbbb  ",
+      "   b   bb  bb  ",
+      "  bbbbbbb  bbb ",
+      "       bs    b ",
+      "       bbbb  b ",
+      "       bbbbbbb ",
+      "          bbb  "
+    ],
+    "start_xy": [
+      2,
+      5
+    ],
+    "switches": {
+      "swatch86": [
+        [
+          6,
+          0,
+          "off"
+        ],
+        [
+          6,
+          1,
+          "off"
+        ]
+      ]
+    },
+    "teleports": {},
+    "passcode": "291709"
+  },
+  {
+    "stage": 12,
+    "symbol": "levelgt",
+    "grid": [
+      "             h ",
+      "      bbb  bbb ",
+      "      bhbbbbbl ",
+      "    bbbbb  bb  ",
+      "    bebl   bb  ",
+      "  bbbbb   bbbb ",
+      " bbbb     bbbb ",
+      " bbbb  bbbbb   ",
+      "      bbb      ",
+      "      bbb      "
+    ],
+    "start_xy": [
+      3,
+      6
+    ],
+    "switches": {
+      "swatch72": [
+        [
+          13,
+          2,
+          "onoff"
+        ]
+      ],
+      "swatch130": [
+        [
+          7,
+          4,
+          "onoff"
+        ]
+      ]
+    },
+    "teleports": {},
+    "passcode": "958640"
+  },
+  {
+    "stage": 13,
+    "symbol": "levelsb",
+    "grid": [
+      " bbbfbbbbfbbbb ",
+      " bb        bbb ",
+      " bb         bbb",
+      " bbb   bbb  bbb",
+      " bbbfffbeb  bbb",
+      " bbb  fbbb  b  ",
+      "   b  fffffbb  ",
+      "   bbbffbfff   ",
+      "    bbffffff   ",
+      "    bbb  bb    "
+    ],
+    "start_xy": [
+      13,
+      3
+    ],
+    "switches": {},
+    "teleports": {},
+    "passcode": "448106"
+  },
+  {
+    "stage": 14,
+    "symbol": "levelub",
+    "grid": [
+      "        bbb    ",
+      "   bbb  bbb    ",
+      "blrbbbbbbbbbbb ",
+      "blrbbb      hb ",
+      "b           bb ",
+      "b           bb ",
+      "b       bbbbbb ",
+      "bbbbb   bbb    ",
+      " bbeb   bbb    ",
+      "  bbb   bbbbbh "
+    ],
+    "start_xy": [
+      4,
+      2
+    ],
+    "switches": {
+      "swatch123": [
+        [
+          1,
+          2,
+          "onoff"
+        ],
+        [
+          2,
+          2,
+          "onoff"
+        ]
+      ],
+      "swatch139": [
+        [
+          1,
+          3,
+          "onoff"
+        ],
+        [
+          2,
+          3,
+          "onoff"
+        ]
+      ]
+    },
+    "teleports": {},
+    "passcode": "210362"
+  },
+  {
+    "stage": 15,
+    "symbol": "levelht",
+    "grid": [
+      "       bbb  bbb",
+      "    bkqbbblrhbb",
+      "bblrb  bbb  bbb",
+      "bbbbb   s      ",
+      "bb             ",
+      " b     v       ",
+      " b     b       ",
+      "bbb   bbb  sbb ",
+      "bbbbbbbbbkqbeb ",
+      "bbb   bbb  sbb "
+    ],
+    "start_xy": [
+      1,
+      8
+    ],
+    "switches": {
+      "swatch121": [
+        [
+          2,
+          2,
+          "onoff"
+        ],
+        [
+          3,
+          2,
+          "onoff"
+        ],
+        [
+          5,
+          1,
+          "onoff"
+        ],
+        [
+          6,
+          1,
+          "onoff"
+        ]
+      ],
+      "swatch83": [
+        [
+          5,
+          1,
+          "onoff"
+        ],
+        [
+          6,
+          1,
+          "onoff"
+        ],
+        [
+          10,
+          1,
+          "onoff"
+        ],
+        [
+          11,
+          1,
+          "onoff"
+        ]
+      ],
+      "swatch117": [
+        [
+          9,
+          8,
+          "off"
+        ],
+        [
+          10,
+          8,
+          "off"
+        ]
+      ],
+      "swatch119": [
+        [
+          9,
+          8,
+          "off"
+        ],
+        [
+          10,
+          8,
+          "off"
+        ]
+      ]
+    },
+    "teleports": {
+      "swatch75": [
+        13,
+        1,
+        1,
+        8
+      ]
+    },
+    "passcode": "098598"
+  }
+]

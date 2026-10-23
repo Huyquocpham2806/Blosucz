@@ -1,0 +1,58 @@
+{
+  "id": 6,
+  "name": "Stage 06",
+  "grid": [
+    ".....######....",
+    ".....#..###....",
+    ".....#..#####..",
+    "S#####.....####",
+    "....###....##G#",
+    "....###.....###",
+    "......#..##....",
+    "......#####....",
+    "......#####....",
+    ".......###....."
+  ],
+  "legend": {
+    "#": "floor",
+    ".": "void",
+    "S": "start",
+    "G": "goal",
+    "F": "fragile",
+    "o": "soft_switch",
+    "x": "heavy_switch",
+    "Y": "split_switch",
+    "B": "bridge"
+  },
+  "bridges": [],
+  "switches": [],
+  "meta": {
+    "difficulty": 2,
+    "group": 2,
+    "hint": "Original stage layout. Study the block orientation and switches.",
+    "profile": "reference15",
+    "reference_stage": 6,
+    "reference_code": "524383",
+    "reference_sha256": "b9f58fee0c22f4cb7bf6b6d78c9042902204c41820748a4e3861a3c60281148c",
+    "solution": "RRRDDRDDRDRULLLUULUUURRDRRULDDRRDDR",
+    "optimal_moves": 35,
+    "verification": {
+      "optimality_verified": true,
+      "objective": "unit actions including SWAP",
+      "expanded_unique_states": 107,
+      "discovered_states": 113,
+      "total_reachable_states": null,
+      "elapsed_s": 0.003057,
+      "level_data_sha256": "4e15c4bda7152eed6f818dbd13a0a90456940ec7297555b70c79837871048ce3",
+      "core_sha256": {
+        "__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "constants.py": "02c7b1952426f3afe84ff5bf55ef7fe083d14b83238be6d1edd7b349b18ee4fa",
+        "costs.py": "b8d95f8c31c2c1240c769101942e424d64d48dda1b5de2d59cd7c442627cfd81",
+        "level.py": "0109cac7c725f61a105e93f34a03ac56bd1ae13c5206f4372c36e4070aa1d625",
+        "rules.py": "4b43031a009a4f9edf1bb1966533568a3be94341bbd4c3d879beff19252117c7",
+        "state.py": "acfe144bd69899ae2d76f1638b553de3d4867d4c8c31fe376d2c02f810be0c17",
+        "tiles.py": "b789ef72389c7fd491803ba336c097cc249a505a4dd17b54bede59c56ca01b35"
+      }
+    }
+  }
+}

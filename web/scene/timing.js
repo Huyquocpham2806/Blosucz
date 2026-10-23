@@ -1,0 +1,22 @@
+/** Seconds throughout. Source-frame estimates and retained fallbacks: docs/FIDELITY.md.
+ * Reference wall-clock medians remain unverified; these are not a 100% timing claim.
+ */
+export const TIMING_PROFILE = "reference";
+export const TIMING = Object.freeze({
+  ROLL_S: 9 / 36,
+  SINK_S: 8 / 36,
+  SPLIT_S: 12 / 36,
+  MERGE_PULSE_S: 0.08,
+  SWAP_S: 0.16,
+  FALL_S: 0.6,
+  BRIDGE_S: 0.24,
+  SWITCH_PULSE_S: 0.07,
+  FRAGILE_SHAKE_S: 0.04,
+  FRAGILE_PIECES_S: 0.36,
+  INTRO_TILES_S: 0.65,
+  INTRO_BLOCK_S: 0.25,
+  INTRO_TITLE_IN_S: 0.22,
+  INTRO_TITLE_OUT_S: 0.23,
+  OUTRO_S: 0.45,
+  REDUCED_S: 0.012,
+});
