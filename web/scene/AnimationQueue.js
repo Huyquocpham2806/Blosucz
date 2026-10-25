@@ -5,7 +5,7 @@ export class AnimationQueue {
     this.generation = 0;
     this.pending = new Set();
     this.speed = 1;
-    this.reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    this.reduced = false;
   }
   tween(target, vars) {
     const generation = this.generation;
