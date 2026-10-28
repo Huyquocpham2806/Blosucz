@@ -33,7 +33,7 @@ def test_student_contract(algo, path):
     assert level.to_dict() == snapshot
     if algo == "bfs":
         assert result.solution_length == level.meta["optimal_moves"]
-    if algo in ("bfs", "dfs", "ids", "astar"):
+    if algo in ("bfs", "dfs", "astar"):
         reference = run_solver("ucs", level)
         if reference.reason != "not_implemented":
             assert reference.found and reference.cost <= result.cost

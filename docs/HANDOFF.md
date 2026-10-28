@@ -4,7 +4,7 @@
 
 Có sẵn: luật, immutable State/Level, 15 JSON của 15 màn đầu bản gốc và chứng nhận, API session, process runner, GUI offline, replay, benchmark, unit/property/oracle/e2e tests.
 
-Nhóm tự làm: `solvers/bfs.py`, `dfs.py`, `ids.py`, `ucs.py`, `astar.py`, `heuristics.py`; Report.pdf; video demo có phần so sánh solver; thông tin MSSV và link nộp. DFS/IDS có hai slot riêng dù rubric thường gộp một họ thuật toán.
+Nhóm tự làm: `solvers/bfs.py`, `dfs.py`, `ucs.py`, `astar.py`, `heuristics.py`; Report.pdf; video demo có phần so sánh solver; thông tin MSSV và link nộp. DFS có slot riêng dù rubric thường gộp một họ thuật toán.
 
 **Không copy đường đi từ meta.solution vào solver.** Meta chỉ phục vụ kiểm chứng level và test harness. UI/API không nhận chuỗi này.
 
@@ -24,10 +24,10 @@ Solver điền found, path (`list[Action]`), cost, expanded_nodes, reason nếu 
 
 ```sh
 python -m pytest tests/test_solver_contract.py tests/test_levels_solutions.py -q
-python bench/run_bench.py --algos bfs dfs ids ucs astar --repeat 3 --timeout 30
+python bench/run_bench.py --algos bfs dfs ucs astar --repeat 3 --timeout 30
 ```
 
-Tests kiểm replay, cost, length, BFS optimal_moves, UCS unit length, UCS risk không tệ hơn các lời giải khác, A* so UCS cho hai heuristic khi đã cài. DFS/IDS chỉ bắt buộc lời giải hợp lệ. So sánh A*/UCS trên 15 màn là regression check, **không phải chứng minh admissibility trên mọi state**.
+Tests kiểm replay, cost, length, BFS optimal_moves, UCS unit length, UCS risk không tệ hơn các lời giải khác, A* so UCS cho hai heuristic khi đã cài. DFS chỉ bắt buộc lời giải hợp lệ. So sánh A*/UCS trên 15 màn là regression check, **không phải chứng minh admissibility trên mọi state**.
 
 ## Cost và các nghĩa vụ toán học
 
@@ -71,7 +71,7 @@ Trong báo cáo, tách tuyên bố lý thuyết khỏi số đo. Optimal metadat
 ## Checklist nộp
 
 - [ ] Đổi StudentID1_StudentID2 thành đúng MSSV.
-- [ ] Nhóm đã tự viết và hiểu 5 slot search (BFS/DFS/IDS/UCS/A*) và heuristic.
+- [ ] Nhóm đã tự viết và hiểu 4 slot search (BFS/DFS/UCS/A*) và heuristic.
 - [ ] Test solver không còn skip cho các thuật toán phải nộp.
 - [ ] Chạy hai lệnh README trên máy giảng viên/Windows thực tế.
 - [ ] Đặt Report.pdf bên cạnh Source, không bên trong Source.

@@ -96,7 +96,7 @@
             ><span>or arrow keys</span>
           </div>
           <button id="swap" disabled>⇄ Swap cube <kbd>SPACE</kbd></button>
-          <button id="camera-mode" type="button" title="Bật/tắt chế độ xoay góc nhìn 360° bằng touchpad hoặc chuột">👁️ <span>Xoay view</span><kbd>V</kbd></button>
+          <button id="camera-mode" type="button" title="Toggle 360° view rotation with mouse or touchpad">👁️ <span>Rotate View</span><kbd>V</kbd></button>
         </div>
         <div class="under-board">
           <span id="guidance"
@@ -153,8 +153,8 @@
           <div><b>Roll block:</b> <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div>
           <div><b>Swap cube (when split):</b> <kbd>SPACE</kbd></div>
           <div><b>Restart / Undo:</b> <kbd>R</kbd> to restart · <kbd>U</kbd> to undo</div>
-          <div><b>Rotate 360°:</b> 2-finger swipe on Touchpad · Right-drag · <kbd>V</kbd></div>
-          <div><b>Zoom & Reset:</b> Pinch / Scroll wheel · <kbd>C</kbd> to reset view</div>
+          <div><b>Rotate 360°:</b> Click & drag · Double-click to orbit · <kbd>V</kbd></div>
+          <div><b>Zoom & Reset:</b> Scroll wheel / Pinch to zoom · <kbd>C</kbd> to reset view</div>
         </div>
       </div>
       <div class="legend-list">
@@ -201,6 +201,31 @@
       <div class="welcome-keys">↑<br />← ↓ →</div>
       <p class="muted">R to restart · U to undo · Space to swap cubes</p>
       <button id="begin" class="primary">Let's roll ↗</button>
+    </dialog>
+    <dialog id="complete-dialog">
+      <div class="dialog-header">
+        <div>
+          <div class="eyebrow">STAGE COMPLETE</div>
+          <h2 id="complete-title">Stage Solved!</h2>
+        </div>
+        <button data-close="complete-dialog" aria-label="Close">✕</button>
+      </div>
+      <p id="complete-message" class="intro-dialog">
+        Thuật toán đã tìm được đường đi và hoàn thành màn chơi này.
+      </p>
+      <div class="complete-actions">
+        <button id="complete-restart" class="secondary">
+          ↻ <span>Chơi lại</span> <kbd>R</kbd>
+        </button>
+        <button id="complete-next" class="primary">
+          <span>Level kế tiếp</span> <span>→</span> <kbd>Enter</kbd>
+        </button>
+      </div>
+      <div class="complete-footer">
+        <button id="complete-levels" class="text-btn">
+          ▦ Chọn màn chơi khác
+        </button>
+      </div>
     </dialog>
     <script type="module" src="/main.js"></script>
   </body>

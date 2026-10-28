@@ -12,7 +12,7 @@ from core.level import Level
 from core.state import State
 from solvers.base import Problem, SearchResult
 
-ALGORITHMS = {name: f"solvers.{name}:solve" for name in ("bfs", "dfs", "ids", "ucs", "astar")}
+ALGORITHMS = {name: f"solvers.{name}:solve" for name in ("bfs", "dfs", "ucs", "astar")}
 
 
 def _worker(

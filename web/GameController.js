@@ -267,7 +267,7 @@ export class GameController {
         if (this.holdTerminal) return;
         if (replay) {
           this.setMode("IDLE");
-          this.ui.toast("Solution complete. Restart or choose the next level.");
+          this.ui.showComplete(this.level);
           return;
         }
         this.setMode("OUTRO");

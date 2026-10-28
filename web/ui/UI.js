@@ -70,6 +70,45 @@ export class UI {
         localStorage.setItem("bloxorz.seen", "yes");
       } catch {}
     };
+
+    const completeDialog = document.querySelector("#complete-dialog");
+    const restartLevel = () => {
+      if (completeDialog.open) completeDialog.close();
+      game.restart();
+    };
+    const nextLevel = () => {
+      if (completeDialog.open) completeDialog.close();
+      if (game.level?.id === 15) {
+        this.toast("All fifteen worlds complete.");
+        game.load(1);
+        this.showLevels();
+      } else {
+        game.load((game.level?.id || 1) + 1);
+      }
+    };
+
+    const compRestart = document.querySelector("#complete-restart");
+    if (compRestart) compRestart.onclick = restartLevel;
+    const compNext = document.querySelector("#complete-next");
+    if (compNext) compNext.onclick = nextLevel;
+    const compLevels = document.querySelector("#complete-levels");
+    if (compLevels) {
+      compLevels.onclick = () => {
+        if (completeDialog.open) completeDialog.close();
+        this.showLevels();
+      };
+    }
+    if (completeDialog) {
+      completeDialog.addEventListener("keydown", (e) => {
+        if (e.key === "r" || e.key === "R") {
+          e.preventDefault();
+          restartLevel();
+        } else if (e.key === "Enter" || e.key === "n" || e.key === "N") {
+          e.preventDefault();
+          nextLevel();
+        }
+      });
+    }
     document.querySelector("#play-pause").onclick = () => game.pauseReplay();
     document.querySelector("#replay-step").onclick = () => game.stepReplay();
     document.querySelector("#stop").onclick = () => game.stopReplay();
@@ -110,7 +149,8 @@ export class UI {
         game.scene.rig?.orbitMode ||
         e.button !== 0 ||
         e.shiftKey ||
-        e.altKey
+        e.altKey ||
+        e.pointerType === "mouse"
       )
         return;
       touch = [e.clientX, e.clientY];
@@ -209,6 +249,30 @@ export class UI {
     } catch {}
     if (!seen && !this.game.debug)
       document.querySelector("#welcome").showModal();
+  }
+  showComplete(level) {
+    const dialog = document.querySelector("#complete-dialog");
+    if (!dialog) return;
+    const title = document.querySelector("#complete-title");
+    const nextBtn = document.querySelector("#complete-next");
+    const msg = document.querySelector("#complete-message");
+
+    const currentId = level?.id || 1;
+    if (title) {
+      title.textContent = `${level?.name || "Stage " + currentId} Solved!`;
+    }
+    if (msg) {
+      msg.textContent = `Thuật toán đã giải xong ${level?.name || "màn chơi"}. Bạn muốn chơi lại hay chuyển qua level kế tiếp?`;
+    }
+    if (nextBtn) {
+      if (currentId >= 15) {
+        nextBtn.innerHTML = `<span>Về Stage 01</span> <span>→</span> <kbd>Enter</kbd>`;
+      } else {
+        const nextId = String(currentId + 1).padStart(2, "0");
+        nextBtn.innerHTML = `<span>Qua Level ${nextId}</span> <span>→</span> <kbd>Enter</kbd>`;
+      }
+    }
+    if (!dialog.open) dialog.showModal();
   }
   level(level) {
     document.querySelector("#level-number").textContent =

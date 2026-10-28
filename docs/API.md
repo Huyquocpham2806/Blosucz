@@ -20,7 +20,7 @@ Move: action UP/DOWN/LEFT/RIGHT/SWAP, phân biệt hoa thường. `seq` phải �
 
 Solve:
 
-- algo bfs/dfs/ids/ucs/astar; heuristic center/relaxed; cost_model unit/risk.
+- algo bfs/dfs/ucs/astar; heuristic center/relaxed; cost_model unit/risk.
 - from_initial=false mặc định. Snapshot được lấy trước khi giải, không sửa session.
 - timeout mặc định 30 giây, lớn hơn 0 và không quá 120; áp dụng **mỗi pass**.
 - time pass trước, memory pass riêng nếu tìm thấy. `measurement_reason` ghi lỗi memory pass; không giả memory=0 là đo thành công.

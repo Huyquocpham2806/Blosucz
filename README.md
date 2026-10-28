@@ -1,7 +1,7 @@
 # BLOXORZ · Solver Lab
 
 Đồ án CSC14003 — game Python/FastAPI với GUI Three.js chạy offline.
-**BFS, DFS, IDS, UCS, A\* và hai heuristic đều là stub có chủ đích.** Không có search algorithm trong game, test hay benchmark. Nhóm tự viết phần thuật toán và báo cáo.
+**BFS, DFS, UCS, A\* và hai heuristic đều là stub có chủ đích.** Không có search algorithm trong game, test hay benchmark. Nhóm tự viết phần thuật toán và báo cáo.
 
 Bản sửa hiện tại dùng **reference15: 15 màn đầu của Bloxorz tham chiếu**, không phải toàn bộ 33 màn. Layout, liên kết switch/bridge và góc chiếu đã đối chiếu nguồn gốc; texture procedural và UI đồ án là phần tái tạo. Không tuyên bố giống 100% về pixel, âm thanh hoặc thời gian. Xem [đối chiếu](docs/FIDELITY.md), [15 màn](docs/LEVELS.md), [kiểm chứng](docs/VERIFICATION.md).
 
@@ -76,7 +76,7 @@ Chế độ `?debug=1&unlock=all`: overlay state/FPS, tọa độ tile, kiểm t
 ## Benchmark
 
 ```sh
-python bench/run_bench.py --algos bfs dfs ids ucs astar --groups 1 2 3 4 --repeat 3 --timeout 30 --cost-model risk --out bench/results
+python bench/run_bench.py --algos bfs dfs ucs astar --groups 1 2 3 4 --repeat 3 --timeout 30 --cost-model risk --out bench/results
 python bench/run_bench.py --algos ucs astar:center --levels 1-4 7 10-15 --cost-model unit --repeat 3
 python bench/plots.py bench/results/results.csv
 ```

@@ -24,7 +24,7 @@ class Move(SessionRequest):
 
 
 class Solve(SessionRequest):
-    algo: Literal["bfs", "dfs", "ids", "ucs", "astar"]
+    algo: Literal["bfs", "dfs", "ucs", "astar"]
     heuristic: Literal["center", "relaxed"] | None = None
     from_initial: bool = False
     timeout: float = Field(default=30, gt=0, le=120)

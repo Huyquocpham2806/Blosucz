@@ -1,7 +1,7 @@
 /** Orbit and zoom-enabled orthographic projection with reference lattice default.
  * Screen basis: column=(32,-5), row=(10,16), up on the world is vertical.
  * Fit uses occupied geometry, including closed bridges, with HUD-safe padding.
- * Right-click drag / Shift+drag rotates 360°, scroll wheel zooms, C resets view.
+ * Click & drag mouse / Double-click to orbit rotates 360°, scroll wheel zooms, C resets view.
  */
 import * as THREE from "three";
 
@@ -122,21 +122,21 @@ export class CameraRig {
       activeTouches.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
       // Rotate with:
-      // - orbitMode active (1-finger drag on touchpad or left-click)
-      // - Right button (2)
-      // - Middle button (1)
-      // - Shift or Alt + Left button (0)
+      // - Left click (0) / Middle click (1) / Right click (2) drag
+      // - Or whenever orbitMode is active
       if (
-        this.orbitMode ||
-        e.button === 2 ||
+        e.button === 0 ||
         e.button === 1 ||
-        (e.button === 0 && (e.shiftKey || e.altKey))
+        e.button === 2 ||
+        this.orbitMode
       ) {
         isDragging = true;
         prevX = e.clientX;
         prevY = e.clientY;
         dom.style.cursor = "grabbing";
-        dom.setPointerCapture?.(e.pointerId);
+        try {
+          dom.setPointerCapture?.(e.pointerId);
+        } catch {}
       }
     });
 
@@ -172,7 +172,19 @@ export class CameraRig {
         return;
       }
 
-      if (!isDragging) return;
+      if (!isDragging) {
+        if (this.orbitMode) {
+          if (prevX !== 0 || prevY !== 0) {
+            const dx = e.clientX - prevX;
+            const dy = e.clientY - prevY;
+            this.setAngles(this.theta - dx * 0.007, this.phi - dy * 0.007);
+          }
+          prevX = e.clientX;
+          prevY = e.clientY;
+        }
+        return;
+      }
+
       const dx = e.clientX - prevX;
       const dy = e.clientY - prevY;
       prevX = e.clientX;
@@ -193,61 +205,51 @@ export class CameraRig {
           dom.releasePointerCapture?.(e.pointerId);
         } catch {}
       }
+      if (!this.orbitMode) {
+        prevX = 0;
+        prevY = 0;
+      }
     };
 
     dom.addEventListener("pointerup", endDrag);
     dom.addEventListener("pointercancel", endDrag);
+    dom.addEventListener("pointerleave", () => {
+      if (!isDragging && this.orbitMode) {
+        prevX = 0;
+        prevY = 0;
+      }
+    });
 
-    // Touchpad two-finger swipe & pinch, or physical mouse wheel
+    // Touchpad and mouse wheel: ZOOM only (no unexpected rotation on 2-finger scroll)
     dom.addEventListener(
       "wheel",
       (e) => {
         e.preventDefault();
-
-        // 1. Pinch-to-zoom on touchpad (browser sets ctrlKey = true)
-        // or user holding Ctrl while scrolling
-        if (e.ctrlKey) {
-          const factor = Math.exp(-e.deltaY * 0.01);
-          this.camera.zoom = Math.max(
-            0.4,
-            Math.min(3.5, this.camera.zoom * factor),
-          );
-          this.camera.updateProjectionMatrix();
-          return;
-        }
-
-        // 2. Physical mouse wheel vs Touchpad detection:
-        // Physical mouse wheel usually has deltaMode != 0 (DOM_DELTA_LINE in Firefox)
-        // or deltaMode == 0 with deltaX == 0 and large stepped deltaY (>= 100).
-        const isPhysicalWheel =
-          e.deltaMode !== 0 ||
-          (e.deltaX === 0 && Math.abs(e.deltaY) >= 100 && e.deltaY % 20 === 0);
-
-        if (isPhysicalWheel && !e.shiftKey) {
-          // Standard physical mouse wheel: Zoom
-          const factor = e.deltaY < 0 ? 1.1 : 0.91;
-          this.camera.zoom = Math.max(
-            0.4,
-            Math.min(3.5, this.camera.zoom * factor),
-          );
-          this.camera.updateProjectionMatrix();
-        } else {
-          // Touchpad two-finger swipe (or Shift + wheel): Rotate 360°!
-          // deltaX rotates horizontally (theta), deltaY tilts vertically (phi)
-          this.setAngles(
-            this.theta - e.deltaX * 0.005,
-            this.phi - e.deltaY * 0.005,
-          );
-        }
+        const factor = e.ctrlKey
+          ? Math.exp(-e.deltaY * 0.01)
+          : e.deltaY < 0
+            ? 1.08
+            : 0.92;
+        this.camera.zoom = Math.max(
+          0.4,
+          Math.min(3.5, this.camera.zoom * factor),
+        );
+        this.camera.updateProjectionMatrix();
       },
       { passive: false },
     );
 
-    // Double-click with right/middle button or shift to reset
+    // Double-click / double-tap on canvas:
+    // - Right button / middle button / shift-double-click: Reset view
+    // - Left button / double-tap: Toggle Orbit Mode ("ấn 2 lần rồi xoay")
     dom.addEventListener("dblclick", (e) => {
       if (e.button === 2 || e.button === 1 || e.shiftKey) {
         this.reset();
+        return;
       }
+      prevX = e.clientX;
+      prevY = e.clientY;
+      this.toggleOrbitMode();
     });
 
     // Button click & keyboard shortcuts
