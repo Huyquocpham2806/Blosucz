@@ -1,5 +1,3 @@
-"""Student implementation slot: UCS."""
-
 from __future__ import annotations
 import heapq
 import itertools
@@ -9,26 +7,19 @@ from solvers.base import Problem, SearchResult
 
 
 def solve(problem: Problem) -> SearchResult:
-    """Uniform-Cost Search (Dijkstra on state space).
-
-    Input: Problem. Output: SearchResult(found, path, cost, expanded_nodes).
-    """
     start_state = problem.initial_state
     counter = itertools.count()
 
-    # Priority queue: (cost, tie_breaker_id, state, path)
     frontier: list[tuple[float, int, State, list[Action]]] = [
         (0.0, next(counter), start_state, [])
     ]
 
-    # best_cost tracks the lowest cost known to reach each state
     best_cost: dict[State, float] = {start_state: 0.0}
     expanded_nodes = 0
 
     while frontier:
         cost, _, state, path = heapq.heappop(frontier)
 
-        # Discard stale entry if a cheaper path to this state was already processed
         if cost > best_cost.get(state, float("inf")):
             continue
 
@@ -52,3 +43,4 @@ def solve(problem: Problem) -> SearchResult:
                 )
 
     return SearchResult(found=False, expanded_nodes=expanded_nodes)
+

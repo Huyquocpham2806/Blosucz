@@ -1,6 +1,3 @@
-/** Seconds throughout. Source-frame estimates and retained fallbacks: docs/FIDELITY.md.
- * Reference wall-clock medians remain unverified; these are not a 100% timing claim.
- */
 export const TIMING_PROFILE = "reference";
 export const TIMING = Object.freeze({
   ROLL_S: 9 / 36,
